@@ -1,10 +1,20 @@
 const express = require("express");
 const path = require("path");
+const fs = require("fs");
 const { Readable } = require("stream");
 const { getTweet } = require("react-tweet/api");
 const ffmpeg = require("fluent-ffmpeg");
-const ffmpegInstaller = require("@ffmpeg-installer/ffmpeg");
-ffmpeg.setFfmpegPath(ffmpegInstaller.path);
+
+let isFfmpegAvailable = false;
+try {
+  const ffmpegInstaller = require("@ffmpeg-installer/ffmpeg");
+  if (ffmpegInstaller && ffmpegInstaller.path) {
+    ffmpeg.setFfmpegPath(ffmpegInstaller.path);
+    isFfmpegAvailable = true;
+  }
+} catch (e) {
+  console.warn("[FFmpeg Setup Warning]:", e.message);
+}
 
 const app = express();
 const port = Number(process.env.PORT) || 3000;
@@ -561,6 +571,10 @@ app.get(["/api/mp3", "/mp3.php"], (req, res) => {
     return res.status(400).send("Invalid video URL for MP3 conversion.");
   }
 
+  if (!isFfmpegAvailable) {
+    return res.status(503).send("MP3 conversion is unavailable on this environment. Please download the MP4 video directly.");
+  }
+
   try {
     res.setHeader("Content-Type", "audio/mpeg");
     res.setHeader("Content-Disposition", `attachment; filename="${filename}"`);
@@ -646,6 +660,23 @@ app.post("/api/contact", (req, res) => {
 app.use(express.static(publicRoot));
 app.use("/Logo", express.static(path.join(__dirname, "Logo")));
 
-app.listen(port, () => {
-  console.log(`Twitter video downloader running at http://localhost:${port}`);
+// Explicit routes for Vercel / serverless environments
+app.get(["/", "/index.html"], (req, res) => {
+  res.sendFile(path.join(publicRoot, "index.html"));
 });
+
+app.get("/:page.html", (req, res, next) => {
+  const filePath = path.join(publicRoot, `${req.params.page}.html`);
+  if (fs.existsSync(filePath)) {
+    return res.sendFile(filePath);
+  }
+  next();
+});
+
+module.exports = app;
+
+if (require.main === module || !process.env.VERCEL) {
+  app.listen(port, () => {
+    console.log(`Twitter video downloader running at http://localhost:${port}`);
+  });
+}
