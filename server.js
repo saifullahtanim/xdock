@@ -6,14 +6,16 @@ const { getTweet } = require("react-tweet/api");
 const ffmpeg = require("fluent-ffmpeg");
 
 let isFfmpegAvailable = false;
-try {
-  const ffmpegInstaller = require("@ffmpeg-installer/ffmpeg");
-  if (ffmpegInstaller && ffmpegInstaller.path) {
-    ffmpeg.setFfmpegPath(ffmpegInstaller.path);
-    isFfmpegAvailable = true;
+if (!process.env.VERCEL) {
+  try {
+    const ffmpegInstaller = require("@ffmpeg-installer/ffmpeg");
+    if (ffmpegInstaller && ffmpegInstaller.path) {
+      ffmpeg.setFfmpegPath(ffmpegInstaller.path);
+      isFfmpegAvailable = true;
+    }
+  } catch (e) {
+    console.warn("[FFmpeg Setup Warning]:", e?.message || e);
   }
-} catch (e) {
-  console.warn("[FFmpeg Setup Warning]:", e.message);
 }
 
 const app = express();
@@ -680,7 +682,7 @@ app.get("/:page.html", (req, res, next) => {
 
 module.exports = app;
 
-if (require.main === module || !process.env.VERCEL) {
+if (!process.env.VERCEL && require.main === module) {
   app.listen(port, () => {
     console.log(`Twitter video downloader running at http://localhost:${port}`);
   });
