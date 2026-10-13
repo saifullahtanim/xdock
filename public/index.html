@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Twitter Video Downloader Online - Download Twitter Videos</title>
+	<meta name="description" content="Twitter Video Downloader Online. Download Twitter videos directly to your device.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+	<script src="js/html5shiv.js"></script>
+	<![endif]-->
+	
+	<!-- Fav and touch icons -->
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../Logo/title.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../Logo/title.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../Logo/title.png">
+	<link rel="apple-touch-icon-precomposed" href="../Logo/title.png">
+	<link rel="shortcut icon" href="../Logo/title.png">
+	<link rel="icon" type="image/png" href="../Logo/title.png">
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+	</head>
+<body>
+	<script>
+		$(document).ready(function(){
+			$('[data-toggle="tooltip"]').tooltip(); 
+			$('#pasteBtn').on('click', async function(){
+				try {
+					const text = await navigator.clipboard.readText();
+					if (text) {
+						$('#videoUrlInput').val(text).focus();
+					}
+				} catch(err) {
+					$('#videoUrlInput').focus();
+				}
+			});
+		});
+	</script>
+	<div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html" title="Twitter Downloader Online"><img class="img-responsive" alt="Twitter Video Downloader Online" src="../Logo/main.png"></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-question-sign"></span> How to? <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="how-to-download-twitter-videos.html">How to use XDock?</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> More <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://fbdock.vercel.app/" target="_blank">Facebook Downloader</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="contact.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Contact us</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>		
+	
+		<div class="jumbotron">
+			<div class="container">
+    			<center>
+    				<a href="index.html" title="Twitter Video Downloader"><img class="img-responsive" alt="Twitter Video Downloader online" title="Twitter Video Downloader" src="../Logo/nev.png" width="260px"></a>
+    				<h1 style="font-size:24px;"><strong>Twitter Video Downloader</strong></h1>
+    				<h2 style="font-size:18px;" class="text-muted"><strong>Download Twitter Videos Online</strong></h2>
+    				<form id="downloadForm" action="/download.php" method="post">
+    					<div class="input-group col-lg-8 search-box-group">
+    						<span class="input-group-addon search-paste-addon" id="pasteBtn" title="Paste from clipboard">
+    							<svg width="20" height="20" viewBox="0 0 24 24" fill="#708090" style="display: block;">
+    								<path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1s-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h6v-3h2v3h4c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/>
+    								<path d="M22 18l-4-4v3h-5v2h5v3l4-4z"/>
+    							</svg>
+    						</span>
+    						<input name="URL" id="videoUrlInput" class="form-control search-input" placeholder="Paste Twitter Video Link ..." type="url" required autofocus>
+    						<span class="input-group-btn">
+    							<button class="btn btn-primary search-btn" type="submit">
+    								<span class="glyphicon glyphicon-arrow-down" aria-hidden="true" style="font-size: 14px; margin-right: 4px;"></span>Download
+    							</button>
+    						</span>
+    					</div>
+    				</form>
+    				<div id="error-container" class="col-lg-8 col-md-10 col-xs-12" style="display: none; margin: 10px auto 0 auto; float: none;"></div>
+    				<!-- Button trigger modal -->
+    				<div class="col-md-8 col-md-offset-2" style="margin-top: 30px; margin-bottom: 8px;">
+    					<button type="button" class="btn btn-info howto-trigger-btn" data-toggle="modal" data-target="#xdock_howto">
+    						<span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+    						<strong>How to Use XDock</strong>
+    					</button>
+    				</div>
+    			</center>
+			</div>
+		
+		</div>
+
+		<!-- Modal: How to Use XDock (Compact 1-Page Layout) -->
+		<div class="modal fade how-to-modal" id="xdock_howto" tabindex="-1" role="dialog" aria-labelledby="xdock_howto_label">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h3 class="modal-title" id="xdock_howto_label">
+							<span class="glyphicon glyphicon-info-sign" style="color: #1da1f2; font-size: 17px;"></span>
+							How to Use XDock
+						</h3>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">&times;</button>
+					</div>
+					<div class="modal-body">
+						<div class="howto-stage">
+							<div class="carousel slide" id="carousel-howto" data-ride="carousel" data-interval="false">
+								<div class="carousel-inner" role="listbox">
+									<div class="item active">
+										<img class="img-responsive center-block" src="img/how-to-download-twitter-videos-step-1.png" alt="Step 1: Copy Twitter Video Link">
+									</div>
+									<div class="item">
+										<img class="img-responsive center-block" src="img/how-to-download-twitter-videos-step-2.png" alt="Step 2: Paste Link in XDock">
+									</div>
+									<div class="item">
+										<img class="img-responsive center-block" src="img/how-to-download-twitter-videos-step-3.png" alt="Step 3: Download Twitter Video">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Bottom Step Navigator Bar -->
+						<div class="howto-nav-bar">
+							<button type="button" class="howto-nav-btn prev-btn" id="howto-prev-btn" onclick="stepHowTo('howto', 'prev')" disabled>
+								<span class="glyphicon glyphicon-chevron-left" style="font-size: 10px;"></span> Previous
+							</button>
+							<div class="howto-step-badge">
+								<span>Step <strong id="howto-step-num">1</strong> of 3</span>
+								<div class="howto-dots">
+									<span class="howto-dot active" id="howto-dot-0" onclick="stepHowTo('howto', 0)"></span>
+									<span class="howto-dot" id="howto-dot-1" onclick="stepHowTo('howto', 1)"></span>
+									<span class="howto-dot" id="howto-dot-2" onclick="stepHowTo('howto', 2)"></span>
+								</div>
+							</div>
+							<button type="button" class="howto-nav-btn next-btn" id="howto-next-btn" onclick="stepHowTo('howto', 'next')">
+								Next <span class="glyphicon glyphicon-chevron-right" style="font-size: 10px;"></span>
+							</button>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<a href="how-to-download-twitter-videos.html" id="howto-full-tutorial" onclick="$('#xdock_howto').modal('hide');" style="color: #64748b; font-size: 13px; font-weight: 600; text-decoration: none;">
+							Need more help? <span style="text-decoration: underline; color: #1da1f2;">Full Tutorial</span> &rarr;
+						</a>
+						<button type="button" class="btn" data-dismiss="modal" style="background-color: #20354b; color: #ffffff; font-weight: 700; font-size: 13px; padding: 7px 22px; border-radius: 6px; border: none; box-shadow: 0 2px 6px rgba(32,53,75,0.2);">Got it</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container footer-wrap">
+			<div class="well col-md-12 text-center">
+				<p style="margin-bottom: 2px;"><strong>Twitter Video Downloader Online</strong></p>
+				<p style="margin-bottom: 2px;">
+					<a href="how-to-download-twitter-videos.html">How to Download Twitter Videos</a> | 
+					<a href="terms.html">Terms of Use</a> | 
+					<a href="privacy.html">Privacy Policy</a> | 
+					<a href="contact.html">Contact us</a> | 
+					<a href="about.html">About</a> | 
+					<a href="https://napa-extraa.vercel.app/" target="_blank" rel="noopener noreferrer">Napa Extra</a>
+				</p>
+				<p style="margin-bottom: 2px; font-size: 13px; color: #555;">
+					XDock does not host any videos on its servers. All videos that you download are hosted on Twitter's CDNs.
+				</p>
+				<p style="margin-bottom: 0; font-size: 13px; color: #555;">
+					XDock is a Social Media Services website and is not associated by any means to Twitter or the Twitter brand and doesn't have anything to do with X Corp. <a href="disclaimer.html">Read the full Disclaimer.</a>
+				</p>
+			</div>		</div>
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"93bba1250ace44e088224cfabaedd127","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+
+</html>

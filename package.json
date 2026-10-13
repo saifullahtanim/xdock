@@ -1,0 +1,19 @@
+{
+  "name": "twitter-video-downloader",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Twitter/X video downloader powered by yt-dlp",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "express": "^4.21.2",
+    "fluent-ffmpeg": "^2.1.3",
+    "react-tweet": "^3.3.1"
+  }
+}

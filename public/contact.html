@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Contact us - Twitter Video Downloader</title>
+  <meta name="description" content="XDock helps you download Twitter (X) videos online for free. Contact us for questions, feature suggestions, or issue reports.">
+  <meta name="keywords" content="contact twitter downloader, twitter video downloader support, xdock contact">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../Logo/title.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../Logo/title.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../Logo/title.png">
+  <link rel="apple-touch-icon-precomposed" href="../Logo/title.png">
+  <link rel="shortcut icon" href="../Logo/title.png">
+  <link rel="icon" type="image/png" href="../Logo/title.png">
+
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
+  <script src="js/contact.js?v=1" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html" title="Twitter Downloader Online"><img class="img-responsive" alt="Twitter Video Downloader Online" src="../Logo/main.png"></a>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-question-sign"></span> How to? <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="how-to-download-twitter-videos.html">How to use XDock?</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span> More <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="https://fbdock.vercel.app/" target="_blank">Facebook Downloader</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="contact.html"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span> Contact us</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+  <div class="jumbotron" style="padding-top: 25px; padding-bottom: 25px;">
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-md-12 column">
+          <center>
+            <a href="index.html"><img class="img-responsive" src="../Logo/nev.png" alt="Download Twitter Videos" title="Twitter Video Downloader Online" width="260"></a>
+            <h2 style="font-size:24px; margin-top: 14px; font-weight: 700; color: #1c1e21;">
+              Twitter Video Downloader
+            </h2>
+            <h1 style="margin-top: 0; font-size:22px; color: #65676b;">
+              <small>Contact us</small>
+            </h1>
+          </center>
+
+          <div class="col-md-6 col-md-offset-3" style="background: #ffffff; padding: 30px; border-radius: 12px; border: 1px solid #e4e6eb; box-shadow: 0 4px 20px rgba(0,0,0,0.04); margin-top: 15px;">
+            <form id="form" onsubmit="event.preventDefault(); submitContact();">
+              <div class="form-group">
+                <label for="namex" style="font-weight: 600; color: #334155;">Name: *</label>
+                <input class="form-control input-lg" id="namex" type="text" placeholder="Your name" required style="border-radius: 6px;">
+              </div>
+              <div class="form-group">
+                <label for="emailx" style="font-weight: 600; color: #334155;">Email: *</label>
+                <input class="form-control input-lg" id="emailx" type="email" placeholder="Your email address" required style="border-radius: 6px;">
+              </div>
+              <div class="form-group">
+                <label for="subjectx" style="font-weight: 600; color: #334155;">Subject: *</label>
+                <input class="form-control input-lg" id="subjectx" type="text" placeholder="Subject of your message" required style="border-radius: 6px;">
+              </div>
+              <div class="form-group">
+                <label for="video_linkx" style="font-weight: 600; color: #334155;">Twitter Video URL: <span class="text-muted">(optional)</span></label>
+                <input class="form-control input-lg" id="video_linkx" type="text" placeholder="https://x.com/..." style="border-radius: 6px;">
+              </div>
+              <div class="form-group">
+                <label for="messagex" style="font-weight: 600; color: #334155;">Message: *</label>
+                <textarea class="form-control input-lg" id="messagex" rows="4" placeholder="How can we help you?" required style="border-radius: 6px; resize: vertical;"></textarea>
+              </div>
+
+              <!-- Interactive Human Verification Captcha -->
+              <div class="form-group" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 14px 18px; margin-top: 15px;">
+                <label style="font-size: 14px; color: #334155; display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px;">
+                  <span><span class="glyphicon glyphicon-shield" style="color:#1da1f2;"></span> Security Check:
+                    <strong><span id="captcha-question" style="color: #0f172a; font-size: 15px; margin-left: 4px;">What is 9 + 11 = ?</span></strong></span>
+                  <button type="button" onclick="initCaptcha()" class="btn btn-default btn-xs" title="New Question" style="padding: 2px 8px; font-size: 12px;">
+                    <span class="glyphicon glyphicon-refresh"></span> Refresh
+                  </button>
+                </label>
+                <input class="form-control input-lg" id="captchax" type="number" placeholder="Enter security answer..." required style="border-radius: 4px;">
+              </div>
+
+              <script>
+                if (typeof initCaptcha === 'function') {
+                  initCaptcha();
+                }
+              </script>
+
+              <div style="display: flex; justify-content: flex-end; margin-top: 18px; margin-bottom: 10px;">
+                <button type="submit" id="submit-btn" class="btn btn-primary input-lg" style="background-color: #1da1f2; border-color: #1da1f2; font-weight: 700; padding: 12px 34px; border-radius: 6px; box-shadow: 0 4px 14px rgba(29, 161, 242, 0.25); display: inline-flex; align-items: center; gap: 8px;">
+                  <span class="glyphicon glyphicon-send"></span> Send Message
+                </button>
+              </div>
+
+              <div id="message_status" style="margin-top: 18px; display: none;"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container footer-wrap">
+    <div class="well col-md-12 text-center">
+      <p style="margin-bottom: 2px;"><strong>Twitter Video Downloader Online</strong></p>
+      <p style="margin-bottom: 2px;">
+        <a href="how-to-download-twitter-videos.html">How to Download Twitter Videos</a> | 
+        <a href="terms.html">Terms of Use</a> | 
+        <a href="privacy.html">Privacy Policy</a> | 
+        <a href="contact.html">Contact us</a> | 
+        <a href="about.html">About</a> | 
+        <a href="https://napa-extraa.vercel.app/" target="_blank" rel="noopener noreferrer">Napa Extra</a>
+      </p>
+      <p style="margin-bottom: 2px; font-size: 13px; color: #555;">
+        XDock does not host any videos on its servers. All videos that you download are hosted on Twitter's CDNs.
+      </p>
+      <p style="margin-bottom: 0; font-size: 13px; color: #555;">
+        XDock is a Social Media Services website and is not associated by any means to Twitter or the Twitter brand and doesn't have anything to do with X Corp. <a href="disclaimer.html">Read the full Disclaimer.</a>
+      </p>
+    </div>
+  </div>
+
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"93bba1250ace44e088224cfabaedd127","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+
+</html>
