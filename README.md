@@ -13,4 +13,6 @@ npm install
 npm start
 ```
 
-Open `http://localhost:3000` and paste a Twitter/X video URL. Use only content you are authorized to download and comply with the platform's terms.
+Open [http://localhost:3000](http://localhost:3000) and paste a Twitter/X video URL.
+
+Use only content you are authorized to download and comply with the platform's terms.
