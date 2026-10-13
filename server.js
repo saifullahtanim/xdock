@@ -657,19 +657,24 @@ app.post("/api/contact", (req, res) => {
   res.json({ success: true, message: "Message received successfully." });
 });
 
+app.use(express.static(__dirname));
 app.use(express.static(publicRoot));
 app.use("/Logo", express.static(path.join(__dirname, "Logo")));
 
-// Explicit routes for Vercel / serverless environments
+// Safe routes for Vercel / serverless environments
 app.get(["/", "/index.html"], (req, res) => {
-  res.sendFile(path.join(publicRoot, "index.html"));
+  const rootIndex = path.join(__dirname, "index.html");
+  if (fs.existsSync(rootIndex)) return res.sendFile(rootIndex);
+  const pubIndex = path.join(publicRoot, "index.html");
+  if (fs.existsSync(pubIndex)) return res.sendFile(pubIndex);
+  res.send("Twitter Video Downloader");
 });
 
 app.get("/:page.html", (req, res, next) => {
-  const filePath = path.join(publicRoot, `${req.params.page}.html`);
-  if (fs.existsSync(filePath)) {
-    return res.sendFile(filePath);
-  }
+  const rootFile = path.join(__dirname, `${req.params.page}.html`);
+  if (fs.existsSync(rootFile)) return res.sendFile(rootFile);
+  const pubFile = path.join(publicRoot, `${req.params.page}.html`);
+  if (fs.existsSync(pubFile)) return res.sendFile(pubFile);
   next();
 });
 
