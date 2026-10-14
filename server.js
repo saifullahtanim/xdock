@@ -683,7 +683,7 @@ app.get("/:page.html", (req, res, next) => {
 module.exports = app;
 
 if (!process.env.VERCEL && require.main === module) {
-  app.listen(port, () => {
-    console.log(`Twitter video downloader running at http://localhost:${port}`);
-  });
+app.listen(port, "0.0.0.0", () => {
+  console.log(`Twitter video downloader running on port ${port}`);
+});
 }
